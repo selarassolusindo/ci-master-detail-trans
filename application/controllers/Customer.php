@@ -26,13 +26,22 @@ class Customer extends CI_Controller {
 		echo $this->model->get($id)->avatar;
 	}
 
+	public function get_title()
+	{
+		$titles = $this->model->get_title($this->input->get('q', TRUE));
+
+		echo json_encode((object)[
+			'items' => $titles
+		]);
+	}
+
 	public function store()
 	{
 		$this->model->name = $this->input->post('name', TRUE);
 		$this->model->avatar = file_get_contents($_FILES['userfile']['tmp_name']);
 		$this->model->address = [];
 
-		foreach ($this->input->post('title', TRUE) as $key => $value) $this->model->address[$key]['title'] = $value;
+		foreach ($this->input->post('title_id', TRUE) as $key => $value) $this->model->address[$key]['title_id'] = $value;
 		foreach ($this->input->post('address', TRUE) as $key => $value) $this->model->address[$key]['address'] = $value;
 		
 		if ($this->model->store() === TRUE) {

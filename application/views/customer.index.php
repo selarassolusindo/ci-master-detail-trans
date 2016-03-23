@@ -8,10 +8,12 @@
 	<link rel="stylesheet" href="lib/bootstrap/css/font-awesome.min.css">
 	<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="lib/bootstrap/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="lib/select2/css/select2.min.css">
 	<link rel="stylesheet" href="lib/bootstrap/css/custom.css">
 
 	<script src="lib/bootstrap/js/jquery.min.js"></script>
 	<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+	<script src="lib/select2/js/select2.min.js"></script>
 	<script src="lib/bootstrap/js/plugin.js"></script>
 </head>
 <body>
@@ -69,7 +71,7 @@
 					        	<table class="table table-bordered" id="table-address"> 
 								    <thead> 
 								        <tr> 
-								            <th>Title</th> 
+								            <th width="150">Title</th> 
 								            <th>Address</th> 
 								            <th class="text-center" width="50">Remove</th> 
 								        </tr>         
@@ -77,7 +79,7 @@
 
 								    <tbody>
 								        <tr>
-								            <td><input type="text" class="form-control" name="title[]" required></input></td> 
+								        	<td><select class="form-control select2" name="title_id[]" required></select></td>
 								            <td><input type="text" class="form-control" name="address[]" required></input></td> 
 								            <td class="text-center">
 								            	<button type="button" class="btn btn-danger btn-sm btn-delete-address"><i class="fa fa-trash-o"></i></button>
