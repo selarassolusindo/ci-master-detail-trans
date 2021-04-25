@@ -58,4 +58,5 @@ $route['store'] = 'customer/store';
 $route['get/(:any)'] = 'customer/get_avatar/$1';
 $route['delete/(:any)'] = 'customer/delete/$1';
 $route['title'] = 'customer/get_title';
+$route['cost'] = '_11_cost/getCost';
 // $route['title/(:any)'] = 'customer/get_title/$1';

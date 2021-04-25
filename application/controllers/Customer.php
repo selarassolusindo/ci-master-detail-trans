@@ -41,8 +41,16 @@ class Customer extends CI_Controller {
 		$this->model->avatar = file_get_contents($_FILES['userfile']['tmp_name']);
 		$this->model->address = [];
 
-		foreach ($this->input->post('title_id', TRUE) as $key => $value) $this->model->address[$key]['title_id'] = $value;
-		foreach ($this->input->post('address', TRUE) as $key => $value) $this->model->address[$key]['address'] = $value;
+		
+		//foreach ($this->input->post('title_id', TRUE) as $key => $value) 
+		$data = $this->input->post();
+		foreach ($data['title_id'] as $key => $value) 
+		{
+			$this->model->address[$key]['title_id'] = $value;
+		}
+		
+		
+		foreach ($data['address'] as $key => $value) {$this->model->address[$key]['address'] = $value;}
 		
 		if ($this->model->store() === TRUE) {
 			$notification = '<div class="alert alert-success">Success creating customer.</div>';
